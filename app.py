@@ -24,6 +24,14 @@ def add_recipe():
     db.db.collection.insert_one(recipe)
     return redirect(url_for('flask_mongodb_atlas'))
 
+@app.route('/add')
+def add():
+    return render_template('add_recipe_form.html')
+
+@app.route('/search')
+def search():
+    return "add search functionality here"
+
 #test to insert data to the data base
 @app.route("/test")
 def test():

@@ -1,13 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Recipe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Add a Recipe</h2>
+    <form method="POST" action="{{ url_for('add_recipe') }}">
+        <input type="text" id="fname" name="fname" placeholder="Your Recipe Name"/>
+        <br>
+        <textarea id="fingredients" name="fingredients" placeholder="Ingredients"></textarea>
+        <br>
+        <textarea id="finstructions" name="finstructions" placeholder="Recipe Instructions"></textarea>
+        <br>
+        <input type="text" id="ftime" name="ftime" placeholder="Total Time for Recipe"/>
+        <br>
+        <input type="submit" value="Save">
+    </form>
 
-<h2>Add a Recipe</h2>
-<form method="POST" action="{{ url_for('add_recipe') }}">
-  <input type="text" id="fname" name="fname" placeholder="Your Recipe Name"/>
-  <br />
-  <textarea type="text" id="fingredients" name="fingredients" placeholder="Ingredients"></textarea>
-  <br />
-  <textarea type="text" id="finstructions" name="finstructions" placeholder="Recipe Instructions"></textarea>
-  <br />
-  <input type="text" id="ftime" name="ftime" placeholder="Total Time for Recipe"/>
-  <br />
-  <input type="submit" value="Save" />
-</form>
+    <button id="backButton">Back</button>
+
+    <script>
+        // Add JavaScript to handle the back button click event
+        document.getElementById('backButton').addEventListener('click', function() {
+            // Navigate back in the browser's history
+            window.history.back();
+        });
+    </script>
+</body>
+</html>
