@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 import db
+from bson.objectid import ObjectId
+
 
 @app.route('/')
 def flask_mongodb_atlas():
@@ -27,6 +29,15 @@ def add_recipe():
 @app.route('/add')
 def add():
     return render_template('add_recipe_form.html')
+
+@app.route('/delete/<recipe_id>')
+def delete_recipe(recipe_id):
+    return render_template('delete_confirmation.html', recipe_id=recipe_id)
+
+@app.route('/confirm_delete/<recipe_id>', methods=['POST'])
+def confirm_delete(recipe_id):
+    db.db.collection.delete_one({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('flask_mongodb_atlas'))
 
 @app.route('/search')
 def search():
