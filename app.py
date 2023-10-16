@@ -44,6 +44,10 @@ def delete_recipe(recipe_id):
 def search():
     return "add search functionality here"
 
+@app.route('/edit')
+def edit():
+    return "add edit functionality here"
+
 @app.route('/cook/<recipe_id>')
 def cook(recipe_id):
   recipe = db.db.collection.find_one({"_id": ObjectId(recipe_id)})
@@ -51,11 +55,7 @@ def cook(recipe_id):
     return "Recipe not found"
   return render_template('recipe_info.html', recipe=recipe)
 
-#test to insert data to the data base
-@app.route("/test")
-def test():
-    db.db.collection.insert_one({"name": "Jiggle"})
-    return "Connected to the data base!"
+
 
 if __name__ == '__main__':
     app.run(port=8000)
