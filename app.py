@@ -44,6 +44,13 @@ def delete_recipe(recipe_id):
 def search():
     return "add search functionality here"
 
+@app.route('/cook/<recipe_id>')
+def cook(recipe_id):
+  recipe = db.db.collection.find_one({"_id": ObjectId(recipe_id)})
+  if not recipe:
+    return "Recipe not found"
+  return render_template('recipe_info.html', recipe=recipe)
+
 #test to insert data to the data base
 @app.route("/test")
 def test():
