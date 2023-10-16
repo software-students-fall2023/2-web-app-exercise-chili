@@ -19,32 +19,32 @@
     });
   </script>
   <section class="posts">
-      <!--<article class="post new-post">
-          {% include 'add_recipe_form.html' %}
-      </article>
-      -->
       {% for recipe in recipes %}
       <article class="post">
           <p class="recipe-name">
               {{recipe.name}} 
           </p>
           <p class="time">
-              {{ recipe.time }}
+              Cook Time: {{ recipe.time }}
           </p>
-          
           <p>
-            <button id="cookRecipeButton">Cook!</button>
-            <script>
-              // Add JavaScript to handle button click event
-              document.getElementById('cookRecipeButton').addEventListener('click', function() {
-                // Redirect to the /newpage route
-                recipe_id = '{{ recipe._id }}';
-                window.location.href = '/cook/' + recipe_id;
-              });
-            </script>
+            <button class="cookButton" data-recipe-id="{{ recipe._id }}">Cook!</button>
           </p>
-
       </article>
       {%endfor%}
+      <script>
+        // Get all buttons with the "cookButton"
+        var cookButtons = document.querySelectorAll('.cookButton');
+        
+        // Add a click event listener to each button
+        cookButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Extract the recipe_id from data-recipe-id 
+                var recipe_id = button.getAttribute('data-recipe-id');
+                window.location.href = '/cook/' + recipe_id;
+            });
+        });
+    </script>
+
   </section>
 </body>
