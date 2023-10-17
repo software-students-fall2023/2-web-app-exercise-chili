@@ -11,14 +11,10 @@
   <h2>Instructions</h2>
   <p>{{ recipe.instructions }}</p>
 
-  <button id="editRecipeButton">Edit This Recipe</button>
-  <script>
-    // Add JavaScript to handle button click event
-    document.getElementById('editRecipeButton').addEventListener('click', function() {
-        // Redirect to the /newpage route
-        window.location.href = '/edit';
-    });
-  </script>
+
+  <form action="{{ url_for('edit', recipe_id=recipe['_id']) }}" method = "GET">
+    <button type="submit">Edit Recipe</button>
+  </form>
 
   <form action="{{ url_for('delete_recipe', recipe_id=recipe['_id']) }}" method = "GET">
     <button type="submit">Delete Recipe</button>
@@ -26,13 +22,12 @@
 
   
   <p>
-    <button id="backButton">Return to Recipe List</button>
+    <button onclick="goToHomePage()">Go Back to Home</button>
+
     <script>
-        // Add JavaScript to handle the back button click event
-        document.getElementById('backButton').addEventListener('click', function() {
-            // Navigate back in the browser's history
-            window.history.back();
-        });
+      function goToHomePage() {
+        window.location.href = "/";
+      }
     </script>
   </p>
 </body>
