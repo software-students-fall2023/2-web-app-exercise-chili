@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #3a8990;
-    --secondary-color: #83C5BE;
-    --tertiary-color: #53A39B;
-    --accent-color: #E29578;
-    --text-color: #333;
-    --background-color: #FFDDD2;
+    --primary-color: #b8e7eb;
+    --secondary-color: #76B3B7;
+    --tertiary-color: #4F8487;
+    --accent-color: #EBB7B7;
+    --text-color: #0E4649;
+    --background-color: #DEFFFD;
 }
 
 body {
@@ -14,6 +14,7 @@ body {
     text-align: center;
 }
 
+input[type="submit"],
 button {
     padding: 10px 20px;  
     font-size: 16px;  
@@ -25,7 +26,8 @@ button {
     text-decoration: none;  
     transition: background-color 0.3s;  
 }
-  
+
+input[type="submit"]:hover,
 button:hover {
     background-color: var(--tertiary-color);
 }
@@ -55,7 +57,12 @@ article.post {
 }
 
 article.post .recipe-name {
-    font-size: 12px;
+    font-size: 20px;
+    font-style: italic;
 }
 
-
+form textarea,
+form input{
+    margin: 10px;
+    font-family: "Bahnschrift", sans-serif;
+}
