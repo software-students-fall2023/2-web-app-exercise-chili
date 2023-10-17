@@ -1,0 +1,41 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Recipe</title>
+</head>
+<body>
+
+  <h2>Edit Recipe</h2>
+  <form method="POST" action="{{ url_for('save_edit', recipe_id=recipe['_id']) }}">
+      <label for="fname">Recipe Name:</label>
+      <input type="text" id="fname" name="fname" value="{{ recipe.name }}" />
+      <br>
+
+      <label for="fingredients">Ingredients:</label>
+      <textarea id="fingredients" name="fingredients">{{ recipe.ingredients }}</textarea>
+      <br>
+
+      <label for="finstructions">Instructions:</label>
+      <textarea id="finstructions" name="finstructions">{{ recipe.instructions }}</textarea>
+      <br>
+
+      <label for="ftime">Total Time:</label>
+      <input type="text" id="ftime" name="ftime" value="{{ recipe.time }}" />
+      <br>
+
+      <input type="submit" value="Save Changes">
+  </form>
+
+  
+  <p>
+    <button id="backButton">Return to Recipe</button>
+    <script>
+        // Add JavaScript to handle the back button click event
+        document.getElementById('backButton').addEventListener('click', function() {
+            // Navigate back in the browser's history
+            window.history.back();
+        });
+    </script>
+  </p>
+</body>
+

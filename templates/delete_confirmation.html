@@ -1,0 +1,24 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Recipe</title>
+</head>
+<body>
+
+  <form action="{{ url_for('confirm_delete', recipe_id=recipe_id) }}" method="POST">
+    <button type="submit">Confirm Delete</button>
+  </form>
+
+  
+  <p>
+    <button id="backButton">Return to Recipe</button>
+    <script>
+        // Add JavaScript to handle the back button click event
+        document.getElementById('backButton').addEventListener('click', function() {
+            // Navigate back in the browser's history
+            window.history.back();
+        });
+    </script>
+  </p>
+</body>
+

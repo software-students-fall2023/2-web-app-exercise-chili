@@ -36,7 +36,7 @@ def confirm_delete(recipe_id):
     db.db.collection.delete_one({'_id': ObjectId(recipe_id)})
     return redirect(url_for('flask_mongodb_atlas'))
 
-@app.route('/delete/<recipe_id>')
+@app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     return render_template('delete_confirmation.html', recipe_id=recipe_id)
 
@@ -44,9 +44,27 @@ def delete_recipe(recipe_id):
 def search():
     return "add search functionality here"
 
-@app.route('/edit')
-def edit():
-    return "add edit functionality here"
+@app.route('/edit/<recipe_id>')
+def edit(recipe_id):
+    recipe = db.db.collection.find_one({'_id': ObjectId(recipe_id)})
+    return render_template('edit_recipe.html', recipe=recipe)
+
+@app.route('/save_edit/<recipe_id>', methods=['POST'])
+def save_edit(recipe_id):
+    name = request.form['fname']
+    ingredients = request.form['fingredients']
+    instructions = request.form['finstructions']
+    time = request.form['ftime']
+
+    db.db.collection.update_one({'_id': ObjectId(recipe_id)},
+                                {'$set': {
+                                    'name': name,
+                                    'ingredients': ingredients,
+                                    'instructions': instructions,
+                                    'time': time
+                                }})
+
+    return redirect(url_for('cook', recipe_id=recipe_id))
 
 @app.route('/cook/<recipe_id>')
 def cook(recipe_id):
