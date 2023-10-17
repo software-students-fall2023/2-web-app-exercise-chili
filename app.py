@@ -36,7 +36,7 @@ def confirm_delete(recipe_id):
     db.db.collection.delete_one({'_id': ObjectId(recipe_id)})
     return redirect(url_for('flask_mongodb_atlas'))
 
-@app.route('/delete/<recipe_id>')
+@app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     return render_template('delete_confirmation.html', recipe_id=recipe_id)
 
