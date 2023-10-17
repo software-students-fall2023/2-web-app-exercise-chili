@@ -19,6 +19,11 @@
         window.location.href = '/edit';
     });
   </script>
+
+  <form action="{{ url_for('delete_recipe', recipe_id=recipe['_id']) }}" method = "GET">
+    <button type="submit">Delete Recipe</button>
+  </form>
+
   
   <p>
     <button id="backButton">Return to Recipe List</button>
