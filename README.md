@@ -14,3 +14,15 @@ A recipe tracking app that'll guarantee you never forget what to pick up from th
 
 [Sprint Board 1](https://trello.com/b/e8I7lhYB/chili-sprint-1)  
 [Sprint Board 2](https://trello.com/b/ZFGGCM1h/chili-sprint-2)
+
+## Instructions to run
+1. Download repository
+2. ```python3 -m venv myenv```
+3. ```source myenv/bin/activate```
+4. ```pip3 install -r requirements.txt```
+5. ```python app.py```
+
+OR using pipenv
+1. ```pip install pipenv```
+2. ```pipenv shell```
+3. ```pip3 install -r requirements.txt```
