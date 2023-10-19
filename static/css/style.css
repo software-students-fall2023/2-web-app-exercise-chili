@@ -61,8 +61,36 @@ article.post .recipe-name {
     font-style: italic;
 }
 
-form textarea,
-form input{
+form textarea, form input {
     margin: 10px;
     font-family: "Bahnschrift", sans-serif;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    display: inline-block;
+    align-items: center; 
+    line-height: 1.5;
 }
+
+.edit-container {
+    background-color: #56bea491; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: right;
+}
+
+body.edit-page {
+    font-family: "Bahnschrift", sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page-container {
+    text-align: center;
+  }

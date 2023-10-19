@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 <body>
-
+  <h1>Delete Recipe</h1>
   <form action="{{ url_for('confirm_delete', recipe_id=recipe_id) }}" method="POST">
     <button type="submit">Confirm Delete</button>
   </form>

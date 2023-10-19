@@ -4,39 +4,40 @@
   <title>Edit Recipe</title>
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
-<body>
+<body class="edit-page">
+  <div class="page-container">
+    <h1>Edit Recipe</h1>
+    <form method="POST" action="{{ url_for('save_edit', recipe_id=recipe['_id']) }}" class="edit-container">
+        <label for="fname">Recipe Name:</label>
+        <input type="text" id="fname" name="fname" value="{{ recipe.name }}" />
+        <br>
 
-  <h2>Edit Recipe</h2>
-  <form method="POST" action="{{ url_for('save_edit', recipe_id=recipe['_id']) }}">
-      <label for="fname">Recipe Name:</label>
-      <input type="text" id="fname" name="fname" value="{{ recipe.name }}" />
-      <br>
+        <label for="fingredients">Ingredients:</label>
+        <textarea id="fingredients" name="fingredients">{{ recipe.ingredients }}</textarea>
+        <br>
 
-      <label for="fingredients">Ingredients:</label>
-      <textarea id="fingredients" name="fingredients">{{ recipe.ingredients }}</textarea>
-      <br>
+        <label for="finstructions">Instructions:</label>
+        <textarea id="finstructions" name="finstructions">{{ recipe.instructions }}</textarea>
+        <br>
 
-      <label for="finstructions">Instructions:</label>
-      <textarea id="finstructions" name="finstructions">{{ recipe.instructions }}</textarea>
-      <br>
+        <label for="ftime">Total Time:</label>
+        <input type="text" id="ftime" name="ftime" value="{{ recipe.time }}" />
+        <br>
 
-      <label for="ftime">Total Time:</label>
-      <input type="text" id="ftime" name="ftime" value="{{ recipe.time }}" />
-      <br>
+        <input type="submit" value="Save Changes">
+    </form>
 
-      <input type="submit" value="Save Changes">
-  </form>
-
-  
-  <p>
-    <button id="backButton">Return to Recipe</button>
-    <script>
-        // Add JavaScript to handle the back button click event
-        document.getElementById('backButton').addEventListener('click', function() {
-            // Navigate back in the browser's history
-            window.history.back();
-        });
-    </script>
-  </p>
+    
+    <p>
+      <button id="backButton">Return to Recipe</button>
+      <script>
+          // Add JavaScript to handle the back button click event
+          document.getElementById('backButton').addEventListener('click', function() {
+              // Navigate back in the browser's history
+              window.history.back();
+          });
+      </script>
+    </p>
+</div>
 </body>
 
