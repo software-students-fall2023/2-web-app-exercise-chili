@@ -20,7 +20,7 @@
                 <option value="time">Cook Time</option>
             </select>
         </form>
-        
+
         <br>
         <p>
             <button onclick="goToHomePage()">Go Back to Home</button>
@@ -40,10 +40,27 @@
                 <p class="recipe-name">Recipe: {{ doc.name }}</p>
                 <p class="recipe-ingredient">Ingredients: {{ doc.ingredients }}</p>
                 <p class="recipe-instructions">Instructions: {{ doc.instructions }}</p>
-                <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p>      
+                <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p> 
+                <p>
+                    <button class="cookButton" data-recipe-id="{{ doc._id }}">Cook!</button>
+                </p>     
             </article>
             <br>
             {%endfor%}
+
+            <script>
+                
+                var cookButtons = document.querySelectorAll('.cookButton');
+                
+                
+                cookButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        
+                        var recipe_id = button.getAttribute('data-recipe-id');
+                        window.location.href = '/cook/' + recipe_id;
+                    });
+                });
+            </script>
         </section>
         
     </body>
