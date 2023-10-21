@@ -22,18 +22,6 @@
         </form>
 
         <br>
-        <p>
-            <button onclick="goToHomePage()">Go Back to Home</button>
-        
-            <script>
-              function goToHomePage() {
-                window.location.href = "/";
-              }
-            </script>
-
-        </p>
-        <br>
-
         <section class="list">
             {% for doc in docs %}
             <article class="list-box">
@@ -62,6 +50,28 @@
                 });
             </script>
         </section>
+
+        <p>
+            <button onclick="goToHomePage()">Go Back to Home</button>
         
+            <script>
+                function goToHomePage() {
+                    window.location.href = "/";
+                }
+            </script>
+        
+        
+            <button onclick="goToSearchPage()">Clear Search Result</button>
+        
+            <script>
+                function goToSearchPage() {
+                window.location.href = "/search";
+                }
+            </script>
+        </p>
+        
+        <br>
+       
+
     </body>
 </html>
