@@ -42,7 +42,7 @@ def delete_recipe(recipe_id):
 
 @app.route('/search')
 def search():
-    return "add search functionality here"
+    return render_template('search.html')
 
 @app.route('/edit/<recipe_id>')
 def edit(recipe_id):
