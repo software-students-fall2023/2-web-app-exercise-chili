@@ -40,7 +40,7 @@ def confirm_delete(recipe_id):
 def delete_recipe(recipe_id):
     return render_template('delete_confirmation.html', recipe_id=recipe_id)
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST'])
 def search():
     return render_template('search.html')
 
