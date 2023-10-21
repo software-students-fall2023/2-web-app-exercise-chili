@@ -17,22 +17,11 @@
                 <option value="" disabled selected>Search Option</option>
                 <option value="recipe_name">Recipe Name</option>
                 <option value="ingredients">Ingredients</option>
-                <option value="instruction">Instructions</option>
                 <option value="time">Cook Time</option>
             </select>
         </form>
-
-        <section class="list">
-            {% for doc in docs %}
-            <article class="list-box">
-                <p class="recipe-name">Recipe: {{ doc.name }}</p>
-                <p class="recipe-ingredient">Ingredients: {{ doc.ingredients }}</p>
-                <p class="recipe-instructions">Instructions: {{ doc.instructions }}</p>
-                <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p>      
-            </article>
-            {%endfor%}
-        </section>
         
+        <br>
         <p>
             <button onclick="goToHomePage()">Go Back to Home</button>
         
@@ -43,6 +32,19 @@
             </script>
 
         </p>
+        <br>
 
+        <section class="list">
+            {% for doc in docs %}
+            <article class="list-box">
+                <p class="recipe-name">Recipe: {{ doc.name }}</p>
+                <p class="recipe-ingredient">Ingredients: {{ doc.ingredients }}</p>
+                <p class="recipe-instructions">Instructions: {{ doc.instructions }}</p>
+                <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p>      
+            </article>
+            <br>
+            {%endfor%}
+        </section>
+        
     </body>
 </html>

@@ -43,7 +43,6 @@ def delete_recipe(recipe_id):
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     if request.method=='POST':
-
         search_query=request.form.get("search_query")
         search_option=request.form.get("search_option")
 
@@ -51,21 +50,19 @@ def search():
 
         if search_option == "recipe_name":
             query = {"name": {"$regex": search_query, "$options": "i"}}
-            docs = db.db.collection.find(query).sort("time", -1)
+            docs = db.db.collection.find(query).sort("time", 1)
+
         elif search_option == "ingredients":
             query = {"ingredients": {"$regex": search_query, "$options": "i"}}
-            
-        elif search_option == "instructions":
-            query = {"instructions": {"$regex": search_query, "$options": "i"}}
             
         elif search_option == "time":
             query = {"time": {"$regex": search_query, "$options": "i"}}
             
-        docs = db.db.collection.find(query).sort("time", -1)
+        docs = db.db.collection.find(query).sort("time", 1)
 
     else:
-        docs = db.db.collection.find({}).sort("time", -1)
-        
+        docs = db.db.collection.find({}).sort("time", 1)
+
     return render_template('search.html', docs=docs)
 
 @app.route('/edit/<recipe_id>')
