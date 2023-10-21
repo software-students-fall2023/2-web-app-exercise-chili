@@ -8,17 +8,19 @@
     <body>
         <h1><center>Search for a Recipe</center></h1>
         <form action="{{ url_for('search') }}" class="example" method="post" action="" style="margin:auto;width:1000px">
-            <input style="width:300px" type="text" placeholder="Search..." name="query">
+            <input style="width:300px" type="text" placeholder="Search..." name="search_query">
             
             <button type="submit" class="search-btn">search</button>
             <br>
-            <select name="option">
+
+            <select name="search_option">
                 <option value="" disabled selected>Search Option</option>
                 <option value="recipe_name">Recipe Name</option>
                 <option value="ingredients">Ingredients</option>
                 <option value="instruction">Instructions</option>
-                <option value="cook_time">Cook Time</option>
+                <option value="time">Cook Time</option>
             </select>
+            
         </form>
         <section class="list">
             {% for doc in docs %}
