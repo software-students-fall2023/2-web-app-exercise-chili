@@ -67,6 +67,10 @@ def search():
             
         docs = db.db.collection.find(query).sort("time", 1)
 
+        doclist=list(docs.clone())
+        if len(doclist)==0:
+            return render_template('no_result.html')
+        
     else:
         docs = db.db.collection.find({}).sort("time", 1)
 
