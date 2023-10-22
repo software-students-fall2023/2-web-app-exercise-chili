@@ -42,14 +42,17 @@ h1{
 }
 
 section.posts {
+    margin: auto;
+    width:300px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center;
+    justify-content: center; 
 }
 
 article.post {
+    width:300px;
     background-color: var(--primary-color);
     border-radius: 5px;
     padding: 1rem;
