@@ -40,6 +40,10 @@ def confirm_delete(recipe_id):
 def delete_recipe(recipe_id):
     return render_template('delete_confirmation.html', recipe_id=recipe_id)
 
+@app.route('/search_initial', methods=['GET', 'POST'])
+def search_initial():
+    return render_template('search_initial.html')
+
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     if request.method=='POST':
