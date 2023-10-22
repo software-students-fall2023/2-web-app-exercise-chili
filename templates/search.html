@@ -8,9 +8,9 @@
     <body>
         <h1><center>Search for a Recipe</center></h1>
         <form action="{{ url_for('search') }}" class="searchpage" method="post" action="" style="margin:auto;width:1000px">
-            <input style="width:260px" type="text" placeholder="Search..." name="search_query">
+            <input style="width:240px" type="text" placeholder="Search..." name="search_query">
             
-            <button type="submit" class="search-btn">search</button>
+            <button type="submit" class="search-btn">Search</button>
             <br>
 
             <select name="search_option">
@@ -22,9 +22,10 @@
         </form>
 
         <br>
-        <section class="list">
-            {% for doc in docs %}
-            <article class="list-box">
+        
+        {% for doc in docs %}
+            <section class="posts">
+            <article class="post">
                 <p class="recipe-name">Recipe: {{ doc.name }}</p>
                 <p class="recipe-ingredient">Ingredients: {{ doc.ingredients }}</p>
                 <p class="recipe-instructions">Instructions: {{ doc.instructions }}</p>
@@ -33,8 +34,10 @@
                     <button class="cookButton" data-recipe-id="{{ doc._id }}">Cook!</button>
                 </p>     
             </article>
+            
+            </section>
             <br>
-            {%endfor%}
+        {%endfor%}
 
             <script>
                 
@@ -49,19 +52,9 @@
                     });
                 });
             </script>
-        </section>
 
         <p>
-            <button onclick="goToHomePage()">Go Back to Home</button>
-        
-            <script>
-                function goToHomePage() {
-                    window.location.href = "/";
-                }
-            </script>
-        
-        
-            <button onclick="goToSearchPage()">Clear Search Result</button>
+            <button style="width:190px" onclick="goToSearchPage()">Clear Search Result</button>
         
             <script>
                 function goToSearchPage() {
@@ -69,9 +62,18 @@
                 }
             </script>
         </p>
+
+        <p>
+            <button style="width:190px" onclick="goToHomePage()">Go Back to Home</button>
+        
+            <script>
+                function goToHomePage() {
+                    window.location.href = "/";
+                }
+            </script> 
+        </p>
         
         <br>
        
-
     </body>
 </html>

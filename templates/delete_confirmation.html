@@ -7,12 +7,12 @@
 <body>
   <h1>Delete Recipe</h1>
   <form action="{{ url_for('confirm_delete', recipe_id=recipe_id) }}" method="POST">
-    <button type="submit">Confirm Delete</button>
+    <button style="width:190px" type="submit">Confirm Delete</button>
   </form>
 
   
   <p>
-    <button id="backButton">Return to Recipe</button>
+    <button style="width:190px" id="backButton">Return to Recipe</button>
     <script>
         
         document.getElementById('backButton').addEventListener('click', function() {

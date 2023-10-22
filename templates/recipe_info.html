@@ -5,25 +5,27 @@
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 <body>
-  <h1>{{ recipe.name }}</h1>
-  <h3>Cook Time: </h2>{{ recipe.time }}
-  <h2>Ingredients</h2>
+  <section class="posts">
+  <article class="post">
+  <h2>{{ recipe.name }}</h2>
+  <h1>Cook Time: </h1>{{ recipe.time }}
+  <h1>Ingredients:</h1>
   <p>{{ recipe.ingredients }}</p>
-  <h2>Instructions</h2>
+  <h1>Instructions:</h1>
   <p>{{ recipe.instructions }}</p>
-
+  <br>
 
   <form action="{{ url_for('edit', recipe_id=recipe['_id']) }}" method = "GET">
-    <button type="submit">Edit Recipe</button>
+    <button style="width:190px" type="submit">Edit Recipe</button>
   </form>
 
   <form action="{{ url_for('delete_recipe', recipe_id=recipe['_id']) }}" method = "GET">
-    <button type="submit">Delete Recipe</button>
+    <button style="width:190px" type="submit">Delete Recipe</button>
   </form>
 
   
   <p>
-    <button onclick="goToHomePage()">Go Back to Home</button>
+    <button style="width:190px" onclick="goToHomePage()">Go Back to Home</button>
 
     <script>
       function goToHomePage() {
@@ -31,5 +33,8 @@
       }
     </script>
   </p>
+
+  </article>
+  </section>
 </body>
 

@@ -22,21 +22,26 @@
     });
   </script>
   </div>
-  <section class="posts">
-      {% for recipe in recipes %}
+ 
+  <br>
+  {% for recipe in recipes %}
+    <section class="posts">
       <article class="post">
-          <p class="recipe-name">
-              {{recipe.name}} 
-          </p>
-          <p class="time">
-              Cook Time: {{ recipe.time }}
-          </p>
-          <p>
-            <button class="cookButton" data-recipe-id="{{ recipe._id }}">Cook!</button>
-          </p>
+        <p class="recipe-name">
+            {{recipe.name}} 
+        </p>
+        <p class="time">
+            Cook Time: {{ recipe.time }}
+        </p>
+        <p>
+          <button class="cookButton" data-recipe-id="{{ recipe._id }}">Cook!</button>
+        </p>
       </article>
-      {%endfor%}
-      <script>
+    </section>
+    <br>
+  {%endfor%}
+
+    <script>
         // Get all buttons with the "cookButton"
         var cookButtons = document.querySelectorAll('.cookButton');
         
@@ -49,6 +54,5 @@
             });
         });
     </script>
-
-  </section>
+ 
 </body>

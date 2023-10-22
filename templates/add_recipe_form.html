@@ -8,20 +8,22 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 <body>
+    <section class="posts">
+    <article class="post">
     <h2>Add a Recipe</h2>
     <form method="POST" action="{{ url_for('add_recipe') }}">
-        <input type="text" id="fname" name="fname" placeholder="Your Recipe Name"/>
+        <input style="width:200px" type="text" id="fname" name="fname" placeholder="Your Recipe Name"/>
         <br>
-        <textarea id="fingredients" name="fingredients" placeholder="Ingredients"></textarea>
+        <textarea style="width:200px" id="fingredients" name="fingredients" placeholder="Ingredients"></textarea>
         <br>
-        <textarea id="finstructions" name="finstructions" placeholder="Recipe Instructions"></textarea>
+        <textarea style="width:200px" id="finstructions" name="finstructions" placeholder="Recipe Instructions"></textarea>
         <br>
-        <input type="text" id="ftime" name="ftime" placeholder="Total Time for Recipe"/>
+        <input style="width:200px" type="text" id="ftime" name="ftime" placeholder="Total Time for Recipe"/>
         <br>
-        <input type="submit" value="Save">
+        <input style="width:100px" type="submit" value="Save">
     </form>
 
-    <button id="backButton">Back</button>
+    <button  style="width:100px" id="backButton">Back</button>
     <script>
         
         document.getElementById('backButton').addEventListener('click', function() {
@@ -29,5 +31,7 @@
             window.history.back();
         });
     </script>
+    </article>
+    </section>
 </body>
 </html>
