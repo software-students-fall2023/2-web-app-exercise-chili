@@ -52,6 +52,9 @@ def search():
 
         query={}
 
+        if search_query == "" or search_option is None:
+            return render_template('search_initial.html')
+        
         if search_option == "recipe_name":
             query = {"name": {"$regex": search_query, "$options": "i"}}
             docs = db.db.collection.find(query).sort("time", 1)
@@ -64,6 +67,10 @@ def search():
             
         docs = db.db.collection.find(query).sort("time", 1)
 
+        doclist=list(docs.clone())
+        if len(doclist)==0:
+            return render_template('no_result.html')
+        
     else:
         docs = db.db.collection.find({}).sort("time", 1)
 
