@@ -1,0 +1,99 @@
+:root {
+    --primary-color: #b8e7eb;
+    --secondary-color: #76B3B7;
+    --tertiary-color: #4F8487;
+    --accent-color: #EBB7B7;
+    --text-color: #0E4649;
+    --background-color: #DEFFFD;
+}
+
+body {
+    font-family: "Bahnschrift", sans-serif;
+    background-color: var(--background-color);
+    margin: 30px;
+    text-align: center;
+}
+
+input[type="submit"],
+button {
+    padding: 10px 20px;  
+    font-size: 16px;  
+    color: var(--text-color); 
+    background-color: var(--secondary-color);  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    text-decoration: none;  
+    transition: background-color 0.3s;  
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: var(--tertiary-color);
+}
+
+
+.controls{
+    padding: 20px;
+}
+
+h1{
+    padding-top: 20px;
+}
+
+section.posts {
+    margin: auto;
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; 
+}
+
+article.post {
+    width:300px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 1rem;
+    color: var(--text-color);
+}
+
+article.post .recipe-name {
+    font-size: 20px;
+    font-style: italic;
+}
+
+form textarea, form input {
+    margin: 10px;
+    font-family: "Bahnschrift", sans-serif;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    display: inline-block;
+    align-items: center; 
+    line-height: 1.5;
+}
+
+.edit-container {
+    background-color: #56bea491; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: right;
+}
+
+body.edit-page {
+    font-family: "Bahnschrift", sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page-container {
+    text-align: center;
+  }
