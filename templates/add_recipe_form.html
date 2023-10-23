@@ -31,6 +31,9 @@
     <script>
         function addIngredientInput() {
             var ingredientsSection = document.getElementById('fingredients');
+
+            var newRow = document.createElement('div');
+            newRow.className = 'ingredient-row';
             var allIngredients = document.querySelectorAll('[name="ingredients[]"]');
             var newIngredientNum = allIngredients.length + 1;
         
@@ -40,6 +43,7 @@
         
             var newInput = document.createElement('input');
             newInput.type = 'text';
+            newInput.className = 'ingredient-input';
             newInput.id = 'ingredient-' + newIngredientNum;
             newInput.name = 'ingredients[]';
             newInput.placeholder = 'Ingredient ' + newIngredientNum;
@@ -57,6 +61,7 @@
             ingredientsSection.appendChild(newLabel);
             ingredientsSection.appendChild(newInput);
             ingredientsSection.appendChild(removeButton);
+            ingredientsSection.appendChild(newRow);
         }
         
         // add more button
