@@ -117,11 +117,11 @@ body.edit-page {
   }
 
 .ingredient-row {
-    display: flex; /* Aligns the child elements (input and button) in a row */
-    justify-content: flex-start; /* Aligns the items to the start of the container */
-    margin-bottom: 10px; /* Optional: Adds some space between each row */
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px; 
   }
 
 .ingredient-input {
-    margin-right: 10px; /* Adds some space between the input and the button */
+    margin-right: 10px; 
   }
