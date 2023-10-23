@@ -13,8 +13,8 @@ def flask_mongodb_atlas():
 def add_recipe():
     "Route to add recipe, POSTs a recipe, accepts form for submission and saves to database"
     name = request.form['fname']
-    ingredients = request.form['fingredients']
     instructions = request.form['finstructions']
+    ingredients = request.form.getlist('ingredients[]')
     time = request.form['ftime']
 
     recipe = {
@@ -79,12 +79,14 @@ def search():
 @app.route('/edit/<recipe_id>')
 def edit(recipe_id):
     recipe = db.db.collection.find_one({'_id': ObjectId(recipe_id)})
-    return render_template('edit_recipe.html', recipe=recipe)
+    ingredients_str = ', '.join(recipe['ingredients'])
+    return render_template('edit_recipe.html', recipe=recipe, ingredients_str=ingredients_str)
 
 @app.route('/save_edit/<recipe_id>', methods=['POST'])
 def save_edit(recipe_id):
     name = request.form['fname']
     ingredients = request.form['fingredients']
+    ingredients = ingredients.split(', ')
     instructions = request.form['finstructions']
     time = request.form['ftime']
 

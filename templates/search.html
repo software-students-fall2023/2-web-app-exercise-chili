@@ -3,12 +3,13 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Search for Recipes</title>
         <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     </head>
-    <body>
-        <h1><center>Search for Recipes</center></h1>
-        <form action="{{ url_for('search') }}" class="searchpage" method="post" action="" style="margin:auto;width:1000px">
-            <input style="width:200px" type="text" placeholder="Search..." name="search_query">
+    <body> 
+        <h2>Search for Recipes</h2>
+        <form action="{{ url_for('search') }}" class="searchpage" method="post" action="" >
+            <input type="text" placeholder="Search..." name="search_query">
             
             <button type="submit" class="search-btn">Search</button>
             <br>
@@ -26,12 +27,17 @@
         {% for doc in docs %}
             <section class="posts">
             <article class="post">
-                <p class="recipe-name">Recipe: {{ doc.name }}</p>
-                <p class="recipe-ingredient">Ingredients: {{ doc.ingredients }}</p>
-                <p class="recipe-instructions">Instructions: {{ doc.instructions }}</p>
-                <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p> 
+                <h2>{{ doc.name }}</h2>
+                <h3>Ingredients: </h3>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    {% for ingredient in doc.ingredients %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+                <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p>
+                <br> 
                 <p>
-                    <button class="cookButton" data-recipe-id="{{ doc._id }}">Cook!</button>
+                    <button class="cookButton" data-recipe-id="{{ doc._id }}"><center>Cook!</center></button>
                 </p>     
             </article>
             
@@ -55,7 +61,7 @@
 
         <br>
         <p>
-            <button style="width:190px" onclick="goToSearchPage()">Clear Search Result</button>
+            <button style="width:220px" onclick="goToSearchPage()">Clear Search Result</button>
         
             <script>
                 function goToSearchPage() {
@@ -65,7 +71,7 @@
         </p>
 
         <p>
-            <button style="width:190px" onclick="goToHomePage()">Go Back to Home</button>
+            <button style="width:220px" onclick="goToHomePage()">Go Back to Home</button>
         
             <script>
                 function goToHomePage() {
@@ -73,7 +79,7 @@
                 }
             </script> 
         </p>
-        
+    
         <br>
        
     </body>
