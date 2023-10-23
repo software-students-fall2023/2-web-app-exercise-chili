@@ -13,8 +13,8 @@ def flask_mongodb_atlas():
 def add_recipe():
     "Route to add recipe, POSTs a recipe, accepts form for submission and saves to database"
     name = request.form['fname']
-    ingredients = request.form['fingredients']
     instructions = request.form['finstructions']
+    ingredients = request.form.getlist('ingredients[]')
     time = request.form['ftime']
 
     recipe = {

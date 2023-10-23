@@ -10,7 +10,11 @@
   <h2>{{ recipe.name }}</h2>
   <h1>Cook Time: </h1>{{ recipe.time }}
   <h1>Ingredients:</h1>
-  <p>{{ recipe.ingredients }}</p>
+  <ul style="list-style-type: none; padding-left: 0;">
+    {% for ingredient in recipe.ingredients %}
+      <li>{{ ingredient }}</li>
+    {% endfor %}
+  </ul>
   <h1>Instructions:</h1>
   <p>{{ recipe.instructions }}</p>
   <br>
