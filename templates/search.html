@@ -27,7 +27,12 @@
             <section class="posts">
             <article class="post">
                 <p class="recipe-name">Recipe: {{ doc.name }}</p>
-                <p class="recipe-ingredient">Ingredients: {{ doc.ingredients }}</p>
+                <p class="recipe-ingredient">Ingredients: </p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    {% for ingredient in doc.ingredients %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
                 <p class="recipe-instructions">Instructions: {{ doc.instructions }}</p>
                 <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p> 
                 <p>
