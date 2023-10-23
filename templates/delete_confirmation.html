@@ -1,0 +1,25 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Recipe</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+  <h1>Delete Recipe</h1>
+  <form action="{{ url_for('confirm_delete', recipe_id=recipe_id) }}" method="POST">
+    <button style="width:190px" type="submit">Confirm Delete</button>
+  </form>
+
+  
+  <p>
+    <button style="width:190px" id="backButton">Return to Recipe</button>
+    <script>
+        
+        document.getElementById('backButton').addEventListener('click', function() {
+            
+            window.history.back();
+        });
+    </script>
+  </p>
+</body>
+

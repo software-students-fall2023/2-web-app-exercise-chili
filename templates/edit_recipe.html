@@ -1,0 +1,43 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Recipe</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body class="edit-page">
+  <div class="page-container">
+    <h1>Edit Recipe</h1>
+    <form method="POST" action="{{ url_for('save_edit', recipe_id=recipe['_id']) }}" class="edit-container">
+        <label for="fname">Recipe Name:</label>
+        <input type="text" id="fname" name="fname" value="{{ recipe.name }}" />
+        <br>
+
+        <label for="fingredients">Ingredients:</label>
+        <input type="text" id="fingredients" name="fingredients" value="{{ ingredients_str }}" placeholder="sep by comma and space"/>
+        <br>
+
+        <label for="finstructions">Instructions:</label>
+        <textarea id="finstructions" name="finstructions">{{ recipe.instructions }}</textarea>
+        <br>
+
+        <label for="ftime">Total Time:</label>
+        <input type="text" id="ftime" name="ftime" value="{{ recipe.time }}" />
+        <br>
+
+        <input type="submit" value="Save Changes">
+    </form>
+
+    
+    <p>
+      <button id="backButton">Return to Recipe</button>
+      <script>
+          
+          document.getElementById('backButton').addEventListener('click', function() {
+              
+              window.history.back();
+          });
+      </script>
+    </p>
+</div>
+</body>
+

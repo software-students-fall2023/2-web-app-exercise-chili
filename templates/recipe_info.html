@@ -1,0 +1,44 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Instructions</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+  <section class="posts">
+  <article class="post">
+  <h2>{{ recipe.name }}</h2>
+  <h1>Cook Time: </h1>{{ recipe.time }}
+  <h1>Ingredients:</h1>
+  <ul style="list-style-type: none; padding-left: 0;">
+    {% for ingredient in recipe.ingredients %}
+      <li>{{ ingredient }}</li>
+    {% endfor %}
+  </ul>
+  <h1>Instructions:</h1>
+  <p>{{ recipe.instructions }}</p>
+  <br>
+
+  <form action="{{ url_for('edit', recipe_id=recipe['_id']) }}" method = "GET">
+    <button style="width:190px" type="submit">Edit Recipe</button>
+  </form>
+
+  <form action="{{ url_for('delete_recipe', recipe_id=recipe['_id']) }}" method = "GET">
+    <button style="width:190px" type="submit">Delete Recipe</button>
+  </form>
+
+  
+  <p>
+    <button style="width:190px" onclick="goToHomePage()">Go Back to Home</button>
+
+    <script>
+      function goToHomePage() {
+        window.location.href = "/";
+      }
+    </script>
+  </p>
+
+  </article>
+  </section>
+</body>
+

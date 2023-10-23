@@ -1,0 +1,58 @@
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+<head>
+  <h1 class="recipe-heading">Recipes Organizer</h1>
+</head>
+<body>
+    <div class="controls">
+  <button id="addRecipeButton">Add Recipe</button>
+  <script>
+    // Add JavaScript to handle button click event
+    document.getElementById('addRecipeButton').addEventListener('click', function() {
+        // Redirect to the /newpage route
+        window.location.href = '/add';
+    });
+  </script>
+  <button id="searchRecipeButton">Search for Recipes</button>
+  <script>
+    // Add JavaScript to handle button click event
+    document.getElementById('searchRecipeButton').addEventListener('click', function() {
+        // Redirect to the /newpage route
+        window.location.href = '/search_initial';
+    });
+  </script>
+  </div>
+ 
+  <br>
+  {% for recipe in recipes %}
+    <section class="posts">
+      <article class="post">
+        <p class="recipe-name">
+            {{recipe.name}} 
+        </p>
+        <p class="time">
+            Cook Time: {{ recipe.time }}
+        </p>
+        <p>
+          <button class="cookButton" data-recipe-id="{{ recipe._id }}">Cook!</button>
+        </p>
+      </article>
+    </section>
+    <br>
+  {%endfor%}
+
+    <script>
+        // Get all buttons with the "cookButton"
+        var cookButtons = document.querySelectorAll('.cookButton');
+        
+        // Add a click event listener to each button
+        cookButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Extract the recipe_id from data-recipe-id 
+                var recipe_id = button.getAttribute('data-recipe-id');
+                window.location.href = '/cook/' + recipe_id;
+            });
+        });
+    </script>
+ 
+</body>

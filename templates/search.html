@@ -1,0 +1,86 @@
+<!-- Search Page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Search for Recipes</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    </head>
+    <body> 
+        <h2>Search for Recipes</h2>
+        <form action="{{ url_for('search') }}" class="searchpage" method="post" action="" >
+            <input type="text" placeholder="Search..." name="search_query">
+            
+            <button type="submit" class="search-btn">Search</button>
+            <br>
+
+            <select name="search_option">
+                <option value="" disabled selected>Search Option</option>
+                <option value="recipe_name">Recipe Name</option>
+                <option value="ingredients">Ingredients</option>
+                <option value="time">Cook Time</option>
+            </select>
+        </form>
+
+        <br>
+
+        {% for doc in docs %}
+            <section class="posts">
+            <article class="post">
+                <h2>{{ doc.name }}</h2>
+                <h3>Ingredients: </h3>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    {% for ingredient in doc.ingredients %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+                <p class="recipe-cooktime">Cook Time: {{ doc.time }}</p>
+                <br> 
+                <p>
+                    <button class="cookButton" data-recipe-id="{{ doc._id }}"><center>Cook!</center></button>
+                </p>     
+            </article>
+            
+            </section>
+            <br>
+        {%endfor%}
+
+            <script>
+                
+                var cookButtons = document.querySelectorAll('.cookButton');
+                
+                
+                cookButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        
+                        var recipe_id = button.getAttribute('data-recipe-id');
+                        window.location.href = '/cook/' + recipe_id;
+                    });
+                });
+            </script>
+
+        <br>
+        <p>
+            <button style="width:220px" onclick="goToSearchPage()">Clear Search Result</button>
+        
+            <script>
+                function goToSearchPage() {
+                window.location.href = "/search_initial";
+                }
+            </script>
+        </p>
+
+        <p>
+            <button style="width:220px" onclick="goToHomePage()">Go Back to Home</button>
+        
+            <script>
+                function goToHomePage() {
+                    window.location.href = "/";
+                }
+            </script> 
+        </p>
+    
+        <br>
+       
+    </body>
+</html>

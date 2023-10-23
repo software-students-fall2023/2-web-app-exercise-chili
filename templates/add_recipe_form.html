@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Recipe</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <section class="posts">
+    <article class="post">
+    <h2>Add a Recipe</h2>
+    <form method="POST" action="{{ url_for('add_recipe') }}">
+        <input style="width:200px" type="text" id="fname" name="fname" placeholder="Your Recipe Name"/>
+        <br>
+        <div id="fingredients">
+            <label for="ingredient-1">Ingredient:</label>
+            <input type="text" id="ingredient-1" name="ingredients[]" placeholder="Ingredient 1">
+        </div>
+        <button type="button" id="add-ingredient">Add More</button>
+        <br>
+        <textarea style="width:200px" id="finstructions" name="finstructions" placeholder="Recipe Instructions"></textarea>
+        <br>
+        <input style="width:200px" type="text" id="ftime" name="ftime" placeholder="Total Time for Recipe"/>
+        <br>
+        <input style="width:100px" type="submit" value="Save">
+    </form>
+
+    <button  style="width:100px" id="backButton">Back</button>
+    <script>
+        function addIngredientInput() {
+            var ingredientsSection = document.getElementById('fingredients');
+
+            var newRow = document.createElement('div');
+            newRow.className = 'ingredient-row';
+            var allIngredients = document.querySelectorAll('[name="ingredients[]"]');
+            var newIngredientNum = allIngredients.length + 1;
+        
+            var newLabel = document.createElement('label');
+            newLabel.htmlFor = 'ingredient-' + newIngredientNum;  // 'for' property is 'htmlFor' in JavaScript DOM
+            newLabel.textContent = 'Ingredient:';
+        
+            var newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.className = 'ingredient-input';
+            newInput.id = 'ingredient-' + newIngredientNum;
+            newInput.name = 'ingredients[]';
+            newInput.placeholder = 'Ingredient ' + newIngredientNum;
+        
+            // remove an ingredient
+            var removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.textContent = 'Remove';
+            removeButton.addEventListener('click', function() {
+                ingredientsSection.removeChild(newLabel);
+                ingredientsSection.removeChild(newInput);
+                ingredientsSection.removeChild(removeButton);
+            });
+        
+            ingredientsSection.appendChild(newLabel);
+            ingredientsSection.appendChild(newInput);
+            ingredientsSection.appendChild(removeButton);
+            ingredientsSection.appendChild(newRow);
+        }
+        
+        // add more button
+        document.getElementById('add-ingredient').addEventListener('click', addIngredientInput);
+        
+        // back button
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.history.back();
+        });
+        </script>
+        
+    </article>
+    </section>
+</body>
+</html>
